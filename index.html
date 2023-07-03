@@ -201,8 +201,13 @@
             </svg>
           </div>
           <button class="btn--round">
-            <svg class="">
+            <svg class="bookmark">
               <use href="src/img/icons.svg#icon-bookmark-fill"></use>
+            </svg>
+          </button>
+          <button class="btn--round">
+            <svg class="delete-recipe">
+              <use href="src/img/icons.svg#icon-delete"></use>
             </svg>
           </button>
         </div>
@@ -276,7 +281,7 @@
           <input value="23" required name="servings" type="number" />
         </div>
 
-        <div class="upload__column">
+        <div class="upload__column add-ingredients">
           <h3 class="upload__heading">Ingredients</h3>
           <label>Ingredient 1</label>
           <input
@@ -327,6 +332,10 @@
           <span>Upload</span>
         </button>
       </form>
+      <button class="btn--add-ingredient">
+        <svg><use href="src/img/icons.svg#icon-plus-circle"></use></svg>
+        <span>Add Ingredient</span>
+      </button>
     </div>
   </body>
 </html>

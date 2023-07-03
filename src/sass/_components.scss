@@ -90,6 +90,18 @@
   }
 }
 
+.page--inline {
+  box-sizing: content-box;
+  color: $color-primary;
+  font-size: 1.3rem;
+  font-weight: 600;
+  border: none;
+  background-color: $color-grey-light-1;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10rem;
+  transition: all 0.2s;
+}
+
 .btn--round {
   background-image: $gradient;
   border-radius: 50%;
@@ -97,7 +109,8 @@
   cursor: pointer;
   height: 4.5rem;
   width: 4.5rem;
-  // margin-left: auto;
+  margin-left: auto;
+  margin-right: auto;
   transition: all 0.2s;
 
   display: flex;
@@ -116,6 +129,9 @@
     height: 2.5rem;
     width: 2.5rem;
     fill: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 

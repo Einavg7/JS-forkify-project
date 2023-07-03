@@ -35,6 +35,13 @@ class RecipeView extends View {
       handler();
     });
   }
+  // addHandlerDeleteRecipe(handler) {
+  //   this._parentElement.addEventListener('click', function (e) {
+  //     const btn = e.target.closest('.btn--delete');
+  //     if (!btn) return;
+  //     handler();
+  //   });
+  // }
 
   _generateMarkup() {
     return `<figure class="recipe__fig">
@@ -84,8 +91,8 @@ class RecipeView extends View {
             <use href="${icons}#icon-bookmark${this._data.bookmarked ? '-fill' : ''}"></use>
           </svg>
         </button>
-      </div>
-    
+        </div>
+        
       <div class="recipe__ingredients">
         <h2 class="heading--2">Recipe ingredients</h2>
         <ul class="recipe__ingredient-list">
@@ -98,7 +105,7 @@ class RecipeView extends View {
           This recipe was carefully designed and tested by
           <span class="recipe__publisher">${this._data.publisher}</span>. Please check out
           directions at their website.
-        </p>
+          </p>
         <a
           class="btn--small recipe__btn"
           href="${this._data.sourceUrl}"
@@ -106,12 +113,17 @@ class RecipeView extends View {
         >
           <span>Directions</span>
           <svg class="search__icon">
-            <use href="${icons}#icon-arrow-right"></use>
+          <use href="${icons}#icon-arrow-right"></use>
           </svg>
         </a>
       </div>`;
   };
 
+  // <button class="btn--round btn--delete">
+  //   <svg class="">
+  //     <use href="${icons}#icon-delete"></use>
+  //   </svg>
+  // </button>
 
   _generateMarkupIngredient(ing) {
     return `

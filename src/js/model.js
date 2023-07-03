@@ -43,6 +43,26 @@ export const loadRecipe = async function (id) {
     }
 };
 
+// export const deleteRecipe = async function (id) {
+//     try {
+//         // Delete recipe from API
+//         const response = await AJAX(`${API_URL}/${id}?key=${KEY}`, undefined, 'DELETED');
+//         const data = response.data;
+//         console.log(data)
+
+//         // Delete recipe from state
+//         const updatedRecipes = state.search.results.filter(recipe => recipe.id !== id);
+//         state.recipe = updatedRecipes;
+
+//         // Handle the case where the deleted recipe was bookmarked
+//         if (state.recipe && state.recipe.id === id) {
+//             state.recipe = null; // Set the current recipe to null or handle it as needed
+//         }
+//     } catch (err) {
+//         throw err;
+//     }
+// };
+
 export const loadSearchResults = async function (query) {
     try {
         state.search.query = query;
@@ -107,6 +127,7 @@ export const deleteBookmark = function (id) {
     if (id === state.recipe.id) state.recipe.bookmarked = false;
     persistBookmarks();
 };
+
 
 const init = function () {
     const storage = localStorage.getItem('bookmarks');

@@ -21,18 +21,14 @@ class PaginationView extends View {
                    <use href="${icons}#icon-arrow-${type === 'next' ? 'right' : 'left'}"></use>
                 </svg>
                 ${type === 'prev' ? `<span>Page ${currentPage - 1}</span>` : ''}
-              </button>
+              </button> 
             `;
     };
 
-    _generatePageNumbers(numPages) {
-        const pageNumbers = Array.from({ length: numPages }, (_, index) => index + 1);
-        return pageNumbers
-            .map((pageNumber) => {
-                return `<span>Page ${pageNumber}</span>`;
-            })
-            .join('');
-    };
+    _generatePageNumber(curPage) {
+        return `<span class="page--inline">${curPage}</span>`
+    }
+
 
     _generateMarkup() {
         const curPage = this._data.page;
@@ -40,27 +36,23 @@ class PaginationView extends View {
 
         // Page 1, and there are other pages
         if (curPage === 1 && numPages > 1) {
-            return this._generateMarkupButton(curPage, 'next');
+            return `${this._generatePageNumber(curPage)} ${this._generateMarkupButton(curPage, 'next')}`;
         }
         // Last page
         if (curPage === numPages && numPages > 1) {
-            return this._generateMarkupButton(curPage, 'prev');;
+            return `${this._generatePageNumber(curPage)} ${this._generateMarkupButton(curPage, 'prev')}`;;
         }
         // Other page
         if (curPage < numPages) {
-            return `${this._generateMarkupButton(curPage, 'prev')}
-            ${this._generateMarkupButton(curPage, 'next')}`;;
+            return `${this._generateMarkupButton(curPage, 'prev')} 
+            ${this._generatePageNumber(curPage)} ${this._generateMarkupButton(curPage, 'next')}`;;
         }
         // Page 1, and there are NO other pages
         if (curPage === 1 && numPages === 1) {
             return ``;
         }
 
-        // Display number of pages between the pagination buttons.
-        return this._generatePageNumbers(numPages);
-
     }
-
 
 }
 

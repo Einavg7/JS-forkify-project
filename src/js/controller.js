@@ -36,6 +36,16 @@ const controlRecipes = async function () {
   }
 };
 
+// const controlDeleteRecipe = async function () {
+//   try {
+//     await model.deleteRecipe(model.state.recipe.id);
+//     console.log(id);
+//   } catch (err) {
+//     console.error(err);
+//   }
+
+// }
+
 const controlSearchResults = async function () {
   try {
     resultsView.renderSpinner();
@@ -131,6 +141,7 @@ const init = function () {
   recipeView.addHandlerRender(controlRecipes);
   recipeView.addHandlerUpdateServings(controlServings);
   recipeView.addHandlerAddBookmark(controlAddBookmark);
+  // recipeView.addHandlerDeleteRecipe(controlDeleteRecipe);
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHandlerUpload(controlAddRecipe);

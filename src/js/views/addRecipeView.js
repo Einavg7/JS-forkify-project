@@ -10,10 +10,32 @@ class AddRecipeView extends View {
     _btnOpen = document.querySelector('.nav__btn--add-recipe');
     _btnClose = document.querySelector('.btn--close-modal');
 
+    _ingColumn = document.querySelector('.add-ingredients');
+    _btnAddIngredient = document.querySelector('.btn--add-ingredient');
+
+    _countIngredients = 6;
+
     constructor() {
         super();
+        this._addHandlerAddIngredient();
         this._addHandlerShowWindow();
         this._addHandlerHideWindow();
+    }
+
+    _addHandlerAddIngredient() {
+        this._btnAddIngredient.addEventListener('click', this._markupAddIngredient.bind(this));
+    }
+
+    _markupAddIngredient() {
+        this._countIngredients++;
+        const markup = `
+        <label>Ingredient ${this._countIngredients}</label>
+        <input
+        type="text"
+        name="ingredient-${this._countIngredients}" 
+        placeholder="Format: 'Quantity,Unit,Description'"/>
+        `
+        this._ingColumn.insertAdjacentHTML('beforeend', markup);
     }
 
     toggleWindow() {
@@ -26,8 +48,9 @@ class AddRecipeView extends View {
     }
 
     _addHandlerHideWindow() {
-        this._btnClose.addEventListener('click', this.toggleWindow.bind(this));
-        this._overlay.addEventListener('click', this.toggleWindow.bind(this));
+        [this._btnClose, this._overlay].forEach(el =>
+            el.addEventListener('click', this.toggleWindow.bind(this))
+        );
     }
 
     addHandlerUpload(handler) {
