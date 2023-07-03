@@ -2,7 +2,7 @@
   "name": "forkify",
   "version": "1.0.0",
   "description": "Recipe application",
-  "main": "index.html",
+  "default": "index.html",
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "targets": {
     "main": false
