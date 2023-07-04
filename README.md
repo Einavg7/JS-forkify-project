@@ -1,4 +1,4 @@
-# Frokify Application
+# Forkify Application
 
 The forkify application is a web application that allows users to search for recipes from the forkify API, bookmark their favorite recipes, and add their own recipes.
 
